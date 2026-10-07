@@ -51,32 +51,32 @@ w_status_t potentiometer_get_voltage(float *voltage)
 	// of the maximum counts, then scale to the max voltage.
 	// TODO: consider how to use ADC to get the correct voltage
 	*voltage = ((float)adc_counts / (float)ADC_MAX_COUNTS) * ADC_MAX_VOLTAGE;
-	// float zero_to_eight = 0.0;
-	// zero_to_eight = (*voltage / 3.3) * 8.0;
-	// int decimal = zero_to_eight;
-	// if (decimal == 1 || decimal == 3 || decimal == 5 || decimal == 7)
-	// {
-	// 	HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_SET);
-	// }
-	// else
-	// {
-	// 	HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_RESET);
-	// }
-	// if (decimal == 2 || decimal == 3 || decimal == 6 || decimal == 7)
-	// {
-	// 	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
-	// }
-	// else
-	// {
-	// 	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
-	// }
-	// if (decimal == 4 || decimal == 5 || decimal == 6 || decimal == 7)
-	// {
-	// 	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-	// }
-	// else
-	// {
-	// 	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-	// }
+	float zero_to_eight = 0.0;
+	zero_to_eight = (*voltage / 3.3) * 8.0;
+	int decimal = zero_to_eight;
+	if (decimal == 1 || decimal == 3 || decimal == 5 || decimal == 7)
+	{
+		HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_SET);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_RESET);
+	}
+	if (decimal == 2 || decimal == 3 || decimal == 6 || decimal == 7)
+	{
+		HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+	}
+	if (decimal == 4 || decimal == 5 || decimal == 6 || decimal == 7)
+	{
+		HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+	}
+	else
+	{
+		HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+	}
 	return W_SUCCESS;
 }
